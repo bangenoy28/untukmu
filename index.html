@@ -1724,7 +1724,247 @@ button{
         transition-duration:.01ms !important;
     }
 }
+/* =====================================================
+   FINAL RESPONSIVE PATCH — ANDROID / LAPTOP / PC
+===================================================== */
 
+html,
+body,
+#app{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+}
+
+.scene{
+    width:100%;
+    min-width:0;
+    padding:
+        max(12px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(12px, env(safe-area-inset-left));
+}
+
+.shell{
+    width:min(94vw,520px);
+    max-width:100%;
+
+    max-height:
+        calc(100dvh - 28px);
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    overscroll-behavior:contain;
+}
+
+/* Semua elemen tidak boleh melewati card */
+.shell > *{
+    max-width:100%;
+}
+
+/* Teks lebih fleksibel */
+h1{
+    font-size:clamp(45px,13vw,64px);
+}
+
+h2{
+    font-size:clamp(34px,9.5vw,49px);
+}
+
+h3{
+    font-size:clamp(25px,7vw,34px);
+}
+
+.muted{
+    font-size:clamp(12px,3.4vw,14px);
+}
+
+/* Tombol nyaman disentuh */
+.btn{
+    min-height:48px;
+    max-width:100%;
+    white-space:normal;
+}
+
+/* Memory game aman untuk layar kecil */
+.grid{
+    width:100%;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:clamp(5px,1.8vw,10px);
+}
+
+.tile{
+    min-width:0;
+    width:100%;
+    aspect-ratio:1/1;
+}
+
+/* Foto */
+.photo{
+    width:100%;
+    height:clamp(170px,48vw,245px);
+}
+
+/* Amplop */
+.envelope{
+    max-width:90%;
+}
+
+/* Polaroid tidak keluar layar */
+.polaroids{
+    width:100%;
+    overflow:visible;
+}
+
+.pol{
+    max-width:32%;
+}
+
+/* Timeline tidak melebar */
+.timeline{
+    max-width:100%;
+}
+
+/* Input */
+#year{
+    max-width:100%;
+}
+
+/* HP kecil */
+@media(max-width:390px){
+
+    .scene{
+        padding:10px;
+    }
+
+    .shell{
+        width:96vw;
+        max-height:calc(100dvh - 20px);
+        padding:21px 15px;
+        border-radius:24px;
+    }
+
+    h1{
+        font-size:47px;
+    }
+
+    h2{
+        font-size:35px;
+    }
+
+    .rose{
+        font-size:55px;
+    }
+
+    .grid{
+        gap:5px;
+    }
+
+    .tile{
+        border-radius:10px;
+    }
+
+    .pol{
+        width:30vw;
+        height:39vw;
+        padding:6px 6px 22px;
+    }
+
+    .pol div{
+        height:calc(100% - 20px);
+    }
+
+    .pol small{
+        font-size:8px;
+    }
+
+    .envelope{
+        width:190px;
+        height:125px;
+    }
+}
+
+/* Android landscape */
+@media(max-height:520px) and (orientation:landscape){
+
+    .scene{
+        align-items:flex-start;
+        padding:8px 15px;
+    }
+
+    .shell{
+        max-height:96dvh;
+        padding:16px 22px;
+    }
+
+    .rose{
+        font-size:40px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    p{
+        margin:7px 0;
+        line-height:1.45;
+    }
+
+    .divider{
+        margin:12px 0;
+    }
+
+    .photo{
+        height:130px;
+    }
+
+    .polaroids{
+        height:160px;
+    }
+
+    .envelope{
+        margin:8px auto;
+        width:180px;
+        height:112px;
+    }
+
+    .ageCard{
+        margin:10px 0;
+        padding:12px;
+    }
+
+    .ageNumber{
+        font-size:52px;
+    }
+}
+
+/* Laptop dan PC */
+@media(min-width:1000px){
+
+    .shell{
+        width:min(520px,48vw);
+        max-height:88dvh;
+    }
+
+    .scene{
+        padding:25px;
+    }
+}
+
+/* Monitor sangat besar */
+@media(min-width:1600px){
+
+    .shell{
+        width:540px;
+        max-height:86dvh;
+    }
+}
 <!-- empty paragraph -->
 </style>
 </head>
